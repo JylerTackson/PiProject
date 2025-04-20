@@ -2,7 +2,16 @@
 
 Raspberry Pi Project using cameras to track the target
 
-### “C++ Smart Target Tracker on Raspberry Pi”
+# “C++ Smart Target Tracker on Raspberry Pi”
+
+###### Current Identified Dependencies:
+
+1. OpenCV
+2. pigpio
+3. Eigen
+4. Catch2
+
+## Project Overview:
 
 1. Track a colored object (Red)
    - Using OpenCV to capture video stream and apply filters
