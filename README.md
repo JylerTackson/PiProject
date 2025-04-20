@@ -55,3 +55,54 @@ Raspberry Pi Project using cameras to track the target
   4.  ReClone Catch2
   5.  Install CMake
   6.  Install g++/gcc/make
+
+### Files:
+
+##### KalmanFilter.cpp
+
+Purpose: Implements a basic Kalman filter for smoothing TOF angle data
+
+###### Responsibilities:
+
+1. Maintain internal state vectors and matrices
+2. Predict and update steps using Eigen for matrix math
+3. Return filtered sensor values to be used by the servo controller
+
+##### PIDController.cpp
+
+Purpose: Implements PID control logic
+
+###### Responsibilities:
+
+1. Calculate error between current and target position
+2. Apply proportional, integral, and derivative adjustments
+3. Return a servo command (e.g., PWM pulse width)
+
+##### Tracker.cpp
+
+Purpose: Handles OpenCV-based red object detection
+
+###### Responsibilities:
+
+1. Capture video frames
+2. Apply HSV filtering and contour detection
+3. Return object coordinates (e.g., x-position in the frame)
+
+##### SensorManager.cpp
+
+Purpose: Reads distance or angle data from the TOF sensor via GPIO/I2C
+
+###### Responsibilities:
+
+1. Communicate with the sensor using pigpio or other libraries
+2. Return raw sensor data to be passed into the Kalman filter
+
+##### ServoController.cpp
+
+Purpose: Sends PWM signals to move the servo based on PID output
+
+###### Responsibilities:
+
+1. Use pigpio to generate PWM on a GPIO pin
+2. Convert control values into pulse widths
+3. Center, limit, and stabilize servo motion
