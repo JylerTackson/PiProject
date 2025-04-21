@@ -94,3 +94,4 @@ Purpose: Sends PWM signals to move the servo based on PID output
 1. Raspberry Pi 3 B+
 2. Camera: OV5647 Camera Module
 3. Luminosity Sensor: TSL2561
+4. Servo: WWZMDiB SG90 Micro Servo
