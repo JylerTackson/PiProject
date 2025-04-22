@@ -1,20 +1,20 @@
-###### What is a header file and why do we need them?
+##### What is a header file and why do we need them?
 
 - The header files are used to declare things such as classes, functions, and constsants but NOT to define these declarations. They can be thought of as blueprints that the cpp file follows and constructs.
   - Seperation of interface and implementation
   - Avoiding code duplication
   - Allowing modular compilation
 
-###### What is CMakeLists.txt?
+##### What is CMakeLists.txt?
 
 - This file is an instructional text file that tells your compiler how to compile your main application.
 
-###### How does the .sh file work?
+##### How does the .sh file work?
 
 - .sh is a shell script file that is a batch of terminal commands for Unix-based systems
 - Use .sh files for setup, service restarts, data backups, log cleaners, etc.
 
-###### Workflow:
+##### Workflow:
 
 - I am using my windows machine and using VSCODE then going over to my raspberry Pi and cloning the repo.
 - Once on the Pi I need to use the Advanced Package Tool (apt) to do multiple things:
@@ -25,12 +25,12 @@
   5.  Install CMake
   6.  Install g++/gcc/make
 
-###### Linux Philosiphy:
+##### Linux Philosiphy:
 
 - When running Linux, hardware is exposed as if it were a file. This is part of the 'Unix philosiphy'
   - Everything is a file
 
-###### I2C Communication:
+##### I2C Communication:
 
 - When you refer to an i2C device file you are referring to a special file that represents the I2C bus that connects
 
@@ -49,7 +49,7 @@
   ```
   - We do neet to map indivual pins. The Linux Kernal I2C driver takes care of communicating with the correct phyiscal pins.
 
-###### PWM Motor Control:
+##### PWM Motor Control:
 
 - When controller a Motor using PWM signals you are using the signal to tell the motor what angle to go to.
   - The motoro will ALWAYS take the shortest path to that angle, unless physically constrained
@@ -64,7 +64,7 @@
     - < 1500 mus = spin one direction
     - > 1500 mus = spin other direction
 
-###### PID Encoder:
+##### PID Encoder:
 
 - PID stands for Proportaional Integral Derivative.
   - P: How far off the target you are.
