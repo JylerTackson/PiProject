@@ -24,3 +24,50 @@
   4.  ReClone Catch2
   5.  Install CMake
   6.  Install g++/gcc/make
+
+###### Linux Philosiphy:
+
+- When running Linux, hardware is exposed as if it were a file. This is part of the 'Unix philosiphy'
+  - Everything is a file
+
+###### I2C Communication:
+
+- When you refer to an i2C device file you are referring to a special file that represents the I2C bus that connects
+
+  - An I2C bus refers to the two physical wires that creates a shared communication channel between the master and slave.
+    - SCL: Serial Clock Line
+      - Sets the pace for communication
+    - SDA: Serial Data Line
+      - Carries the Actual Data
+
+- In this project I am wiring up the TSL2561 Sensor to the Pi through the 3 and 5 pins.
+  - 3 Pin is the SDA
+  - 5 Pin is the SCL
+- However, by using the I2C device file:
+  ```
+  const char* device = "/dev/i2c-1";
+  ```
+  - We do neet to map indivual pins. The Linux Kernal I2C driver takes care of communicating with the correct phyiscal pins.
+
+###### PWM Motor Control:
+
+- When controller a Motor using PWM signals you are using the signal to tell the motor what angle to go to.
+  - The motoro will ALWAYS take the shortest path to that angle, unless physically constrained
+  - The SG90 Micro Servo's have an view angle of 180 degrees.
+- What happens when you send a PWM signal to the servo:
+  1. Compares its current angle to the target
+  2. Applies voltage internally to move toward that angle
+  3. Stops when it reaches it
+- What if you want Continous Motor Movement?
+  - A 360 degree continuous rotation servo treate PWM as speed and direction
+    - 1500 mus = stop
+    - < 1500 mus = spin one direction
+    - > 1500 mus = spin other direction
+
+###### PID Encoder:
+
+- PID stands for Proportaional Integral Derivative.
+  - P: How far off the target you are.
+  - I: How long you've been off.
+  - D: How quickly the error is changing.
+- It is a type of feedback control system that adjusts an ouput based on the difference between a desired and actual value.

@@ -1,0 +1,3 @@
+// Header Guards
+#ifndef EXPOSUREMANAGER_HPP
+#define EXPOSUREMANAGER_HPP
